@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Krishna Aluminium | Aluminium Fabrication</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            color: #222;
+        }
+
+        /* NAVBAR */
+        header {
+            background: #111827;
+            color: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #f59e0b;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #f59e0b;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 7%;
+            background:
+                linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
+                url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=80");
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero h1 {
+            font-size: 55px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #f59e0b;
+        }
+
+        .hero p {
+            font-size: 20px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 25px;
+            background: #f59e0b;
+            color: #111;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin: 5px;
+        }
+
+        .btn:hover {
+            background: #fff;
+        }
+
+        .btn-dark {
+            background: white;
+        }
+
+        /* COMMON */
+        section {
+            padding: 75px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #666;
+        }
+
+        /* SERVICES */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,.08);
+            transition: .3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            font-size: 22px;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* ABOUT */
+        .about {
+            background: #111827;
+            color: white;
+        }
+
+        .about-container {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about p {
+            line-height: 1.8;
+            color: #ddd;
+            font-size: 17px;
+        }
+
+        /* GALLERY */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: .3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.03);
+        }
+
+        /* WHY US */
+        .why {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .why-box {
+            background: white;
+            padding: 25px;
+            border-left: 5px solid #f59e0b;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,.06);
+        }
+
+        .why-box h3 {
+            margin-bottom: 8px;
+        }
+
+        /* CONTACT */
+        .contact {
+            background: #e5e7eb;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,.08);
+        }
+
+        .contact-info {
+            text-align: center;
+            line-height: 2;
+            margin-bottom: 25px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 14px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            font-size: 15px;
+        }
+
+        textarea {
+            height: 130px;
+            resize: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: #f59e0b;
+            border: none;
+            border-radius: 7px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #111827;
+            color: white;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        /* WHATSAPP */
+        .whatsapp {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #25D366;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,.3);
+            z-index: 2000;
+        }
+
+        /* MOBILE */
+        @media(max-width: 700px) {
+
+            header {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav a {
+                margin-left: 8px;
+                font-size: 13px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            section {
+                padding: 55px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        Krishna <span>Aluminium</span>
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+</header>
+
+
+<!-- HOME -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <h1>
+            Krishna <span>Aluminium</span>
+        </h1>
+
+        <p>
+            Aluminium and Steel Gates, Railings, Windows, sliding window, Doors, Swings
+            and Custom Fabrication Work.
+        </p>
+
+        <a href="#services" class="btn">
+            Our Services
+        </a>
+
+        <a href="#contact" class="btn btn-dark">
+            Get a Quote
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section id="services">
+
+    <div class="section-title">
+
+        <h2>Our Services</h2>
+
+        <p>
+            Quality aluminium fabrication for homes, shops and offices.
+        </p>
+
+    </div>
+
+
+    <div class="services">
+
+        <div class="card">
+            <div class="icon">🚪</div>
+            <h3>Aluminium Gates</h3>
+            <p>
+                Stylish and strong aluminium gates
+                according to your required design.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="icon">🪟</div>
+            <h3>Aluminium Windows</h3>
+            <p>
+                Modern aluminium windows and sliding window with
+                clean finishing and durable frames.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="icon">🏠</div>
+            <h3>Steel Doors</h3>
+            <p>
+                Custom Steel doors for homes,
+                offices and shops.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="icon">🛡️</div>
+            <h3>Railings</h3>
+            <p>
+                Steel railings for balconies,
+                stairs and other spaces.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="icon">🪑</div>
+            <h3>Steel Jhula</h3>
+            <p>
+                Custom Steel swings made
+                according to your requirements.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="icon">⚒️</div>
+            <h3>Custom Fabrication</h3>
+            <p>
+                Special aluminium fabrication work
+                in your preferred design and size.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+    <div class="about-container">
+
+        <div class="section-title">
+            <h2>About Krishna Aluminium</h2>
+        </div>
+
+        <p>
+            Krishna Aluminium is a trusted aluminium fabrication
+            business providing custom aluminium solutions for homes,
+            shops, offices and other spaces.
+        </p>
+
+        <br>
+
+        <p>
+            We can make aluminium gates, doors, windows, sliding window, railings,
+            swings and many other customised products according
+            to customer requirements.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- GALLERY -->
+
+<section id="gallery">
+
+    <div class="section-title">
+
+        <h2>Our Work</h2>
+
+        <p>Some examples of aluminium and steel fabrication work.</p>
+
+    </div>
+
+    <div class="gallery">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRVIJ0eMjZZ3g8EZOdxsrVNBgbvm6yZMdcC-P2ZUfIBA&s">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4odg5E03ZmEjcRTUW0N1xwnL0JKDVUTGA-8MofS5FcQ&s=10">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRObTXW-rz5m1hd9KKQMJm-ma_N4-Xt_iYT8XjnQEcsoA&s=10">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPbLLuF0425-2dWGII2VMJpqzBWtG2LuAzGVJDsESA0dflL6BKdy7jjQ0&s">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9ZrkaxCGwElvpR4HDM7D-MK-P1bAchrdIIfL5vC74DQ&s=10">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPbLLuF0425-2dWGII2VMJpqzBWtG2LuAzGVJDsESA0dflL6BKdy7jjQ0&s">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7NHjbAsQU8JT_2YkUwUDt8DZuWmy0OQ0UaDwFn6jS2g&s=10">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkndmZP0s9y1uOMW-pdKrZYENVy-UKjjoJvJ5kLFaThg&s=10">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbAuoCH0iSRR4oy0OjXHLX-BFl0HxUWUtYnjEIdYozOg&s=10">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxe2U6cBnoy_cXyIxURnKHqJRL6IarYCGfQqVgpfJmgg&s=10">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgYvfYQhnV9TNZXXVv8Tp2VOB2GSRdLBO06xe_yhjxbQ&s=10">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPMVyg9VlJQesbIGEZr_AHZpMatBjXu0Z2oJK0D48sKQ&s=10">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS9JHsMkL-XNon8IvzCG8RaV_sPkDbwcG-IJyMUd8qJg&s=10">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-k-h10hucBV5jGQzaAaIC2Z2my8ciO_QM_Pg9SUY6qw&s=10">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzc6ZoDx4VZA6ousfkSKFhiPM5N9pZ5kKO1l5ud2F3rw&s=10">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRjTgWMj3oTV0Rp0AWfkREpU7yVo583PMbUj6qksYqRw&s=10">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1r0BnTs8yZrHSUvuTa8z7_U0371LkEiy056DzuaeBtf6zwyG2ZAXI5Vw&s=10">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdxkbecDJ7sqZFHY163L-0yXBZDexhR9aHAxX-a3zCFQ&s=10">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_VrkafzdnYzZdynkVHjlgRuLZczPWMjHIlSLf7_G4LA&s=10">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxy3q_Zw2L6GkTaw4n1wLkylMz2wpYP7N9qY_-6YIK4w&s=10">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv1mHSkfapH2q_D3caNKZh_e5cpTot8gGvmGb35tlaVA&s=10">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5FtamETjkNa1M8SB01vyMsiGK9orJzQNIJhpUx2c2wQ&s=10">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYL1pxENhrcLPDl_JDHnnIeymjCGRXGXUQxjeDZGIo1Q&s=10">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlOi_4sI6Lj5DdvCFjaDogAAhFvqWr3G_vAAGsBU2dfg&s=10">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPMZ61gCXr2MKMO_xZvbuIlwxypupNAKPkeZPaiUZkGg&s=10">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC-egSYdaR0b24bhNfFVuD5jo9gxLMW3l6uF432tePBA&s=10">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUCAKsx6T2vWJkkAB3IjrW1V5hQtzOp3yltq10-575gQ&s=10">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0atWBh32x2HzUwQ1YsM9KCMXm5rD419L4BGk7uGx3tw&s=10">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLNOhC9boR9m-zqsK6HTGZ-uKRIlptM1tjYRLX5Zg7_g&s=10">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLibN5tRo38hM2zjFbj6cB91UDq-AGOi0xqbHJ6moklg&s=10">
+
+        <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQElXSYa3jv9FOVWxBFR_D1Y-Fxk13eph_Syf-5AXmoaRD1YAOfpLKRID2yz4QSH8pgh40a0fsqr1Rh5rrqxfqubIwZEj2-aQ">
+
+        <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQnbjkeT7iE2RoORFB4eDlHjjp8pDVCEAxLGIgHsQamvZhId9pt9cHgaQeVB-z2Y1uaCtrLxdDWWX-iIbA4-pWm2YlSAWeYwG3_R9ZDf-EYU6V8VsHVIlcQzUE">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQG1n1j2dAHd20U8uOklhfYdfq3BxZ9fXjkwmaGzJz1eQ&s">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLPM9nZ10qb8tdksEEFjDDNJChF2R2Ivtt-LqBkJAYKA&s=10">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHuAS4ozK-d5ebKxpMTTDSIBbnfH2UN_yKWMMmw_Trdg&s=10">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6iHx3x-6c5vITrFG9zdlfl8SXY_nl0awgg6NOZ-o7LQ&s=10">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9zJXDNSZDgZmBd2_nbsnVkjFAmbX2olE99BLCcOeJLA&s=10">
+
+        <img src="https://d91ztqmtx7u1k.cloudfront.net/ClientContent/Images/ExtraLarge/full-size-stainless-steel-double-bed-without-storage20231220113553.jpg">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK5ykD_8F5GDE_MZt6eQ0aSTaEFhh02AgIylscG-GX9w&s=10">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDgAz4H_NVlPGsU6kKgMZB4hlo8MRKmH1sdXHn5d9dUw&s=10">
+
+    </div>
+
+</section>
+
+
+<!-- WHY US -->
+
+<section>
+
+    <div class="section-title">
+
+        <h2>Why Choose Us?</h2>
+
+    </div>
+
+
+    <div class="why">
+
+        <div class="why-box">
+            <h3>✓ Custom Designs</h3>
+            <p>
+                Design and size according to your requirement.
+            </p>
+        </div>
+
+
+        <div class="why-box">
+            <h3>✓ Quality Work</h3>
+            <p>
+                Focus on clean finishing and durable fabrication.
+            </p>
+        </div>
+
+
+        <div class="why-box">
+            <h3>✓ Affordable Pricing</h3>
+            <p>
+                Get a quotation according to your project.
+            </p>
+        </div>
+
+
+        <div class="why-box">
+            <h3>✓ Customer Support</h3>
+            <p>
+                Contact us for your aluminium and steel fabrication requirements.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+    <div class="section-title">
+
+        <h2>Contact Us</h2>
+
+        <p>Send us your requirement for a quotation.</p>
+
+    </div>
+
+
+    <div class="contact-container">
+
+        <div class="contact-info">
+
+            <h3>Krishna Aluminium</h3>
+
+            <p>📞 Phone:8172916985, 9628633720, 9565639099</p>
+
+            <p>📱 WhatsApp: 8172916985, 9628633720 </p>
+
+            <p>📍 Address: khadda and padruna road naurangiya choraha, kushinagar</p>
+
+            <p>✉️ Email: kirishnasharma00@gmail.com</p>
+
+        </div>
+
+
+        <form onsubmit="sendMessage(event)">
+
+            <input
+                type="text"
+                id="name"
+                placeholder="your name"
+                required
+            >
+
+            <input
+                type="tel"
+                id="phone"
+                placeholder="phone number"
+                required
+            >
+
+            <textarea
+                id="message"
+                placeholder="Tell us what you want..."
+                required
+            ></textarea>
+
+            <button type="submit">
+                Send Enquiry on WhatsApp
+                
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © 2026 Krishna Aluminium. All Rights Reserved.
+    </p>
+
+    <p>
+        Aluminium Gates • Doors • Windows • Railings • Swing You can get anything custom-made according to your needs and requirements for your home.
+    </p>
+
+</footer>
+
+
+<!-- WHATSAPP BUTTON -->
+
+<a
+    class="whatsapp"
+    href="https://wa.me/9628633720"
+    target="_blank"
+>
+    ☎
+</a>
+
+
+<script>
+
+function sendMessage(event) {
+
+    event.preventDefault();
+
+    let name =
+        document.getElementById("Santosh sharma").value;
+
+    let phone =
+        document.getElementById("9565639099").value;
+
+    let message =
+        document.getElementById("message").value;
+
+
+    /*
+       IMPORTANT:
+       नीचे अपना WhatsApp number डालना है.
+       Example:
+       919876543210
+    */
+
+    let shopNumber = "8172916985";
+
+
+    let text =
+        "Hello Krishna Aluminium,%0A%0A" +
+        "Name: " + name + "%0A" +
+        "Phone: " + phone + "%0A" +
+        "Requirement: " + message;
+
+
+    window.open(
+        "https://wa.me/" +
+        shopNumber +
+        "?text=" +
+        text,
+        "_blank"
+    );
+
+}
+
+</script>
+
+</body>
+</html>
